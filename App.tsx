@@ -1,29 +1,38 @@
 import React, {useState} from 'react';
-import {Image, SafeAreaView, StyleSheet, View} from 'react-native';
+import {
+  Image,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+import GradientButton from './src/Components/Buttons/GradientButton';
 
-function App(): JSX.Element {
+ function App(): JSX.Element {
   const [heights, setHeights] = useState(0);
   return (
     <SafeAreaView>
-      <View
-        style={styles.sectionContainer}
-        onLayout={e => {
-          setHeights(e.nativeEvent.layout.height);
-        }}>
-        <Image source={require('./assets/Image.png')} />
-        <Image source={require('./assets/Image-1.png')} />
-        <Image source={require('./assets/Image-2.png')} />
-        <Image source={require('./assets/Image-3.png')} />
-        <Image source={require('./assets/Image-4.png')} />
-        <Image source={require('./assets/Image-5.png')} />
-        <Image source={require('./assets/Image-6.png')} />
-        <Image source={require('./assets/Image-7.png')} />
-        <Image source={require('./assets/Image-8.png')} />
-      </View>
-      <Image
-        source={require('./assets/Overlay.png')}
-        style={{...styles.overlay}}
-      />
+        <View
+          style={styles.sectionContainer}
+          onLayout={e => {
+            setHeights(e.nativeEvent.layout.height);
+          }}>
+          <Image source={require('./assets/Image.png')} />
+          <Image source={require('./assets/Image-1.png')} />
+          <Image source={require('./assets/Image-2.png')} />
+          <Image source={require('./assets/Image-3.png')} />
+          <Image source={require('./assets/Image-4.png')} />
+          <Image source={require('./assets/Image-5.png')} />
+          <Image source={require('./assets/Image-6.png')} />
+          <Image source={require('./assets/Image-7.png')} />
+          <Image source={require('./assets/Image-8.png')} />
+        </View>
+        <Image
+          source={require('./assets/Overlay.png')}
+          style={{...styles.overlay}}
+        />
     </SafeAreaView>
   );
 }
@@ -45,10 +54,11 @@ const styles = StyleSheet.create({
     width: '100%',
   },
   linearGradient: {
+    position: 'absolute',
     flex: 1,
-    paddingLeft: 15,
-    paddingRight: 15,
+    padding:20,
     borderRadius: 5,
+    top:0,
   },
   buttonText: {
     fontSize: 18,
@@ -71,5 +81,4 @@ const styles = StyleSheet.create({
     fontWeight: '700',
   },
 });
-
 export default App;
