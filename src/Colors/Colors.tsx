@@ -1,6 +1,9 @@
-export const white = '#FFFFFF';
-export const orange = '#F4511E';
-export const lightOrange = '#FFBF75';
-export const lightGrey = '#EEEEEE';
-export const black = '#222831';
-export const lightBlack = '#393E48';
+export const color = {
+  white: '#FFFFFF',
+  orange: '#F4511E',
+  lightOrange: '#FFBF75',
+  lightGrey: '#E3E3E7',
+  black: '#222831',
+  lightBlack: '#393E48',
+  textBlack: '#1A1E25',
+};
