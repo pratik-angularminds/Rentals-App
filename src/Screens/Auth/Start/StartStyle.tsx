@@ -10,9 +10,8 @@ export const styles = StyleSheet.create({
   },
   overlay: {
     position: 'absolute',
-    left: 0,
+    alignSelf:'center',
     height: '100%',
-    resizeMode: 'stretch',
     width: '100%',
   },
   linearGradient: {

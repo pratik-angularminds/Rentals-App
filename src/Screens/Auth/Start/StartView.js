@@ -17,8 +17,10 @@ import {
 import GradientButton from '../../../Components/Buttons/GradientButton';
 import LinearGradient from 'react-native-linear-gradient';
 import {color} from '../../../Colors/Colors';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 
-const StartView = (props: any) => {
+const StartView = ({navigation}) => {
   const [heights, setHeights] = useState(0);
   return (
     <SafeAreaView>
@@ -44,9 +46,9 @@ const StartView = (props: any) => {
         />
         <View
           style={{
-            left: 20,
-            right: 20,
+            width: '100%',
             bottom: 160,
+            alignSelf:'center',
             position: 'absolute',
             alignItems: 'center',
           }}>
@@ -57,10 +59,12 @@ const StartView = (props: any) => {
           </Text>
         </View>
         <GradientButton
-          btnStyle={{ position: 'absolute', left: 20, right: 20, bottom: 90 }}
-          title="Log in" onPress={function (): void {
-            throw new Error('Function not implemented.');
-          } }        />
+          btnStyle={{position: 'absolute', left: 20, right: 20, bottom: 90}}
+          title="Log in"
+          onPress={() => {
+            navigation.navigate('Login');
+          }}
+        />
         <TouchableOpacity
           style={{
             position: 'absolute',

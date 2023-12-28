@@ -1,19 +1,35 @@
-import {LogBox, Text} from 'react-native';
 import React from 'react';
-import {Provider} from 'react-redux';
-import {store, persistor} from '../reducer/Store';
-import {PersistGate} from 'redux-persist/integration/react';
-import App from './Auth/Login/LoginView';
+import Login from './Auth/Login/LoginView';
+import {NavigationContainer, DefaultTheme} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import StartView from './Auth/Start/StartView';
 
-LogBox.ignoreAllLogs();
-//const store = myStore();
-
+const Stack = createNativeStackNavigator();
+const MyTheme = {
+  ...DefaultTheme,
+  colors: {
+    ...DefaultTheme.colors,
+    background: 'white',
+  },
+};
 export const AppBinder = () => {
   return (
-    <Provider store={store}>
-      <PersistGate loading={<Text>Loading...</Text>} persistor={persistor}>
-        <App />
-      </PersistGate>
-    </Provider>
+    <NavigationContainer theme={MyTheme}>
+      <Stack.Navigator
+        initialRouteName="Home"
+        screenOptions={{
+          headerTitle: '',
+          headerShadowVisible: false,
+        }}>
+        <Stack.Screen
+          name="Home"
+          component={StartView}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen name="Login" component={Login} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
